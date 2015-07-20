@@ -1,0 +1,37 @@
+
+{% load staticfiles %} 
+{% load thumbnail %}
+                                                                                                       
+
+							<div class="col-sm-4">
+								<div class="single-products">
+										<div class="productinfo text-center">
+												
+												<!-- <img src="/{{product.image.url}}" id="image_{{ product.id }}"
+                                                      
+                                                      alt="{{ product.name }}"
+                                                      title="{{ product.name }}"/>  -->
+											
+											<a href="shop/{{ product.id }}"><img src="/{{product.get_thumbnail_150}}" id="image_{{ product.id }}"
+                                                      
+                                                      alt="{{ product.name }}"
+                                                      title="{{ product.name }}"/></a>
+											
+											
+											
+											
+											
+											<h2>&#8364;{{ product.price|floatformat:2 }}</h2>
+											<p>{{ product.name }}</p>
+											<a href="card/add/?id={{ product.id }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+										<!-- <div class="product-overlay">
+											<div class="overlay-content">
+												<h2>&#8364;{{ product.price|floatformat:2 }}</h2>
+												<p>{{ product.name }}</p>
+												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											</div>
+										</div> -->
+								</div>
+							</div>
+							
