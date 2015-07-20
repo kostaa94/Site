@@ -120,6 +120,13 @@ a#scrollUp i{
   background: #0083C9;
 }
 
+.fa-vk:hover {
+  background: #0083C9;
+}
+
+.fa-instagram:hover {
+  background: #3f729b;
+}
 .fa-twitter:hover  {
 	background:#5BBCEC;
 }

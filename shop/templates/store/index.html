@@ -4,7 +4,6 @@
 {% load i18n %}
 {% load staticfiles %} 
 <head>
-	<!-- <p> Check </p> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -47,21 +46,34 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6">
-						<div class="contactinfo">
+						<div class="social-icons pull-left">
+							<ul class="nav navbar-nav">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fa fa-vk"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+<!-- 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
 								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
 					<div class="col-sm-6">
-						<div class="social-icons pull-right">
+						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+
+								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								{% if user.is_authenticated %}
+								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								{% else %}
+								<li><a href="login.html"><i class="fa fa-lock"></i> Logout</a></li>
+								{% endif %}
 							</ul>
 						</div>
 					</div>
