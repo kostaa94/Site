@@ -187,16 +187,16 @@
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href="../../card/add_to_cart/{{ item.product.id }}"> + </a>
+									<a class="cart_quantity_up" href="../card/add_to_cart/{{ item.product.id }}/"> + </a>
 									<input class="cart_quantity_input" type="text" name="quantity" value=    {{ item.quantity }} autocomplete="off" size="2">
-									<a class="cart_quantity_down" href="../../card/remove_single/?id={{ item.product.id }}"> - </a>
+									<a class="cart_quantity_down" href="../../card/remove_single/{{ item.product.id }}/"> - </a>
 								</div>
 							</td>
 							<td class="cart_total">
 								<p class="cart_total_price">{{ item.subtotal }}</p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href="../../card/remove/?id={{ item.product.id }}"><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="../../card/remove/{{ item.product.id }}/"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 						{% endfor %}

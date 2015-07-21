@@ -1,8 +1,10 @@
-from django.http import HttpResponse, HttpResponsePermanentRedirect
+from django.http import HttpResponse, HttpResponseRedirect#, JsonResponse
 from django.shortcuts import render,get_object_or_404
 from django.template import RequestContext, loader
 from store import models
 from carton.cart import Cart
+#import json
+
 # Create your views here.
 def index(request):
     context = {
@@ -32,28 +34,41 @@ def showcard(request):
 def login(request):
     return render(request, 'store/login.html')
 
-def add(request):
+def add(request, id):
     cart = Cart(request.session)
-    product = models.Product.objects.get(id=request.GET.get('id'))
+    product = get_object_or_404(models.Product, pk=id)
     cart.add(product, price=product.price)
-    return render(request, 'store/cart.html')
+    return HttpResponseRedirect('../../showcard')
 
-def remove_single(request):
-    cart = Cart(request.session)
-    product = models.Product.objects.get(id=request.GET.get('id'))
-    cart.remove_single(product)
-    return render(request, 'store/cart.html')
+#def add(request):
+#    cart = Cart(request.session)
+#    product = models.Product.objects.get(id=request.GET.get('id'))
+#    cart.add(product, price=product.price)
+#    return render(request, 'store/cart.html')
 
-def remove(request):
-    cart = Cart(request.session)
-    product = models.Product.objects.get(id=request.GET.get('id'))
-    cart.remove(product)
-    return render(request, 'store/cart.html')
+#def remove(request):
+#    cart = Cart(request.session)
+#    product = models.Product.objects.get(id=request.GET.get('id'))
+#    cart.remove(product)
+#    return render(request, 'store/cart.html')
 
 def add_to_cart(request, id):
     cart = Cart(request.session)
-    product =get_object_or_404(models.Product, pk=id)
+    product = get_object_or_404(models.Product, pk=id)
     cart.add(product, price=product.price)
-    return HttpResponsePermanentRedirect('/')
+    return HttpResponseRedirect('../../../card/showcard')
+    #return render(request, 'store/cart.html', {'product':product})
     #return render(request, 'store/product-details.html',{'product':product})
-    #return render(request, 'store/product-details.html',{'product':product})
+    #return JsonResponse({'product.id':product.id})
+
+def remove(request, id):
+    cart = Cart(request.session)
+    product = get_object_or_404(models.Product, pk=id)
+    cart.remove(product)
+    return HttpResponseRedirect('../../../card/showcard')
+
+def remove_single(request, id):
+    cart = Cart(request.session)
+    product = get_object_or_404(models.Product, pk=id)
+    cart.remove_single(product)
+    return HttpResponseRedirect('../../../card/showcard')
