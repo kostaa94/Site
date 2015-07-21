@@ -44,7 +44,7 @@ INSTALLED_APPS = (
     'store',
     'sorl.thumbnail',
     'carton',
-
+   ## 'debug_toolbar',
 
 )
 

@@ -20,11 +20,12 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
 
 urlpatterns = i18n_patterns('',
-    url(r'^shop/',include('store.urls')),
-    url(r'^product/',include('store.urls')),
-    url(r'^$',include('store.urls')),
+
+    url(r'^product/', include('store.urls')),
+    url(r'^$', include('store.urls')),
+    url(r'^shop/', include('store.urls')),
     url(r'^checkout/',include('store.urls')),
-    url(r'^card/',include('store.urls')),
+    url(r'^cart/',include('store.urls')),
     url(r'^login/',include('store.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

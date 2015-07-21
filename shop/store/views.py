@@ -28,7 +28,7 @@ def checkout(request):
         }
     return render(request, 'store/checkout.html', context)
 
-def showcard(request):
+def showcart(request):
     return render(request, 'store/cart.html')
 
 def login(request):

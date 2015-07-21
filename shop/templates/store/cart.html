@@ -63,7 +63,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="/"><img src="images/home/logo.png" alt="" /></a>
+							<a href="/"><img src="{% static "bootstrap/images/home/logo.png" %}" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">
 							<div class="btn-group">
@@ -119,12 +119,12 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="/">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="/shop/all">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="/shop/all">Products</a></li>
-										<li><a href="/shop/4">Product Details</a></li> 
+										<li><a href="/shop/7">Product Details</a></li> 
 										<li><a href="/checkout/proceed">Checkout</a></li> 
-										<li><a href="/card/showcard">Cart</a></li> 
+										<li><a href="/cart/showcart">Cart</a></li> 
 										<li><a href="/login/login">Login</a></li> 
                                     </ul>
                                 </li> 
@@ -187,16 +187,16 @@
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href="../card/add_to_cart/{{ item.product.id }}/"> + </a>
+									<a class="cart_quantity_up" href="../cart/add_to_cart/{{ item.product.id }}/"> + </a>
 									<input class="cart_quantity_input" type="text" name="quantity" value=    {{ item.quantity }} autocomplete="off" size="2">
-									<a class="cart_quantity_down" href="../../card/remove_single/{{ item.product.id }}/"> - </a>
+									<a class="cart_quantity_down" href="../../cart/remove_single/{{ item.product.id }}/"> - </a>
 								</div>
 							</td>
 							<td class="cart_total">
 								<p class="cart_total_price">{{ item.subtotal }}</p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href="../../card/remove/{{ item.product.id }}/"><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="../../cart/remove/{{ item.product.id }}/"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 						{% endfor %}
